@@ -16,14 +16,14 @@ def  convert_to_doc_pdf(input_path: str):
         print("doc", doc)
 
         out_dir, out_file = os.path.split(input_path)
-        out_path = os.path.join(out_dir, "output", out_file)
+        out_path = os.path.join(out_dir, "000_output", out_file)
         # Saving as DOC
         doc_path = out_path.replace('.docx', '.doc')
         print(f"Saving as DOC: {doc_path}")
         doc.SaveAs(doc_path, FileFormat=0) # 0 == doc
         # Saving as pdf
         pdf_path = out_path.replace('.docx', '.pdf')
-        print(f"Saving as DOC: {pdf_path}")
+        print(f"Saving as PDF: {pdf_path}")
         doc.SaveAs(pdf_path, FileFormat=17) # 17 == pdf
 
         # Closing the document and the Word
@@ -35,9 +35,9 @@ def  convert_to_doc_pdf(input_path: str):
         # Setting the resources free
         del doc
         del word
-        print("Conversion successful.")
+        return "Conversion successful"
     except Exception as e:
-        print('Error!', e)
+        return('Error!', e)
 
 if __name__ == '__main__':
     input_path = 'E:\\Py_Projects\\word_to_pdf\\bspl\\CV_Jakutow.docx' 
