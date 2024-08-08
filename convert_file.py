@@ -37,8 +37,8 @@ def  convert_to_doc_pdf(input_path: str):
         del word
         return "Conversion successful"
     except Exception as e:
+        word.Quit()
+        del doc
+        del word
         return('Error!', e)
 
-if __name__ == '__main__':
-    input_path = 'E:\\Py_Projects\\word_to_pdf\\bspl\\CV_Jakutow.docx' 
-    convert_to_doc_pdf(input_path)
